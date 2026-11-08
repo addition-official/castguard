@@ -75,10 +75,6 @@ Download the new version, replace your `extension` folder, then click the reload
 - **A site still takes over the cast:** make sure the popup shows it as protected, reload the tab, and try again. If it still happens, [open an issue](https://github.com/addition-official/castguard/issues) with the site's link.
 - **A site's video player is broken:** turn CastGuard off for that site from the popup and open an issue.
 
-## License
-
-[MIT](LICENSE)
-
 ## A note on how this was built
 
 This started as "why does casting YouTube open my TV's YouTube app instead of just mirroring the tab?" The usual answers didn't work: picking **Sources > Cast tab** still got hijacked the moment a video started, the uBlock Origin filter fix is gone since Chrome dropped Manifest V2, and casting the whole screen wasn't what I wanted. The cause turned out to be the page's own player grabbing the cast session through Google's Cast SDK. Blocking that one script fixed YouTube. Hiding the browser's Presentation and Remote Playback APIs from pages extended the fix to sites that host the SDK themselves or skip it. The per-site toggle came later, because I missed uBlock's popup.
