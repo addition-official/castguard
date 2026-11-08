@@ -78,3 +78,9 @@ Download the new version, replace your `extension` folder, then click the reload
 ## License
 
 [MIT](LICENSE)
+
+## A note on how this was built
+
+This started as "why does casting YouTube open my TV's YouTube app instead of just mirroring the tab?" The usual answers didn't work: picking **Sources > Cast tab** still got hijacked the moment a video started, the uBlock Origin filter fix is gone since Chrome dropped Manifest V2, and casting the whole screen wasn't what I wanted. The cause turned out to be the page's own player grabbing the cast session through Google's Cast SDK. Blocking that one script fixed YouTube. Hiding the browser's Presentation and Remote Playback APIs from pages extended the fix to sites that host the SDK themselves or skip it. The per-site toggle came later, because I missed uBlock's popup.
+
+I used AI assistance throughout: for figuring out why the takeover happens, for the extension code, the icon, and this README. Testing it on my own TV, deciding what it should and shouldn't do, and shaping how it works and looks are mine.
